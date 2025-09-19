@@ -1,0 +1,234 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Fonts */
+body {
+  font-family: 'Merriweather', serif;
+  background: linear-gradient(135deg, #a8926d 0%, #57422d 100%);
+  color: #F4E9D8;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: 70px; /* for fixed navbar */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(89, 72, 52, 0.85);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #F4E9D8;
+  user-select: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 20px;
+}
+
+.nav-links a {
+  color: #F4E9D8;
+  font-family: 'Merriweather', serif;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #DAA520;
+  outline: none;
+}
+
+/* Buttons */
+.btn {
+  background: #4B382F;
+  color: #F4E9D8;
+  padding: 10px 22px;
+  border-radius: 20px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2rem;
+  box-shadow: 2px 3px 8px rgba(0,0,0,0.3);
+  border: 2px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+}
+
+.btn:hover,
+.btn:focus {
+  background: #DAA520;
+  color: #362D25;
+  border-color: #362D25;
+  transform: scale(1.05);
+  outline: none;
+}
+
+/* Hero Section */
+.hero {
+  height: calc(100vh - 70px); /* full screen minus navbar height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 650px;
+  user-select: none;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 24px;
+  color: #F4E9D8;
+  text-shadow: 2px 3px 7px rgba(0, 0, 0, 0.55);
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 36px;
+  color: #E3DCCC;
+  font-style: italic;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* About Section */
+.about {
+  padding: 80px 20px 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(244, 233, 216, 0.25);
+  border-radius: 15px;
+  color: #362D25;
+  font-size: 1.15rem;
+  box-shadow: 5px 8px 25px rgba(70, 56, 40, 0.3);
+  font-weight: 400;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.about h2 {
+  margin-bottom: 22px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.3rem;
+  color: #362D25;
+}
+
+/* Features Section */
+.features {
+  max-width: 1000px;
+  margin: 50px auto 80px auto;
+  padding: 0 20px;
+  text-align: center;
+  user-select: none;
+}
+
+.features h2 {
+  margin-bottom: 40px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.6rem;
+  color: #F4E9D8;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: rgba(244, 233, 216, 0.8);
+  color: #362D25;
+  flex: 1 1 220px;
+  margin: 10px;
+  padding: 25px 20px;
+  border-radius: 18px;
+  font-size: 1.15rem;
+  box-shadow: 3px 6px 20px rgba(0,0,0,0.15);
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  cursor: default;
+  transition: background-color 0.3s ease;
+}
+
+.card:hover {
+  background: #DAA520;
+  color: #362D25;
+  font-weight: 700;
+  box-shadow: 3px 6px 30px rgba(218, 165, 32, 0.8);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-family: 'Merriweather', serif;
+  color: #F4E9D8;
+  background: rgba(70, 56, 40, 0.85);
+  user-select: none;
+  font-size: 1rem;
+  box-shadow: inset 0 2px 6px rgba(255,255,255,0.1);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .nav-links li {
+    margin: 0 10px;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .features h2 {
+    font-size: 2rem;
+  }
+  .feature-cards {
+    gap: 20px;
+  }
+  .card {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .nav-links {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .nav-links li {
+    margin: 12px 0;
+  }
+}

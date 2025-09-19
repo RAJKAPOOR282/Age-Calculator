@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400;700&display=swap');
+
+body {
+  font-family: 'Merriweather', serif;
+  background: linear-gradient(135deg, #a8926d 0%, #57422d 100%);
+  min-height: 100vh;
+  margin: 0;
+  color: #5c4740;
+}
+.age-box, .live-time, .info-card, .countdown-box {
+  border-radius: 10px;
+  box-shadow: 2px 4px 15px rgba(0,0,0,0.2);
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 2px solid #a18b6a;
+  padding: 1rem;
+}
+.age-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.age-box span {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #5c4740;
+}
+.age-box p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #816749;
+  margin-top: 0.2rem;
+}
+.live-time {
+  border-color: #b08946;
+}
+.live-time span {
+  color: #7c5e22;
+}
+.info-card {
+  padding: 2rem;
+  border-color: #a18b6a;
+}
+.countdown-box {
+  background-color: rgba(244, 233, 216, 0.9);
+  border-color: #a18b6a;
+  padding: 1rem 0.5rem;
+}
+.countdown-box span {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5c4740;
+}
+.countdown-box p {
+  font-size: 0.8rem;
+  color: #816749;
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+}
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+  40%, 60% { transform: translate3d(3px, 0, 0); }
+}
+#dob, #targetDate {
+  transition: box-shadow 0.3s ease;
+}
+#dob:focus, #targetDate:focus {
+  box-shadow: 0 0 8px 2px #b08946;
+  outline: none;
+}
+button:focus {
+  outline: 3px solid #b08946;
+  outline-offset: 2px;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Age Calculator | Your Personal Timeline</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="calculator.css" />
+</head>
+<body class="flex items-center justify-center min-h-screen p-6">
+  <main class="w-full max-w-3xl mx-auto bg-[rgba(250,243,230,0.95)] border-2 border-[#5c4740] rounded-lg p-8 shadow-2xl backdrop-blur-md text-center animate-fadeIn" role="main">
+    <header class="mb-10">
+      <h1 class="font-playfair text-5xl font-bold text-[#5c4740] mb-3">Age Calculator</h1>
+      <p class="font-merriweather italic text-[#816749] border-t border-b border-dashed border-[#816749]/50 py-3 text-lg">
+        Find your exact age and upcoming birthday countdown.
+      </p>
+    </header>
+
+    <section class="flex flex-col md:flex-row gap-8 mb-10 justify-center items-center" aria-label="Date input section">
+      <div class="flex-1 max-w-sm">
+        <label for="dob" class="block mb-3 font-bold text-[#5c4740] text-left">Date of Birth<span aria-hidden="true" class="text-red-600">*</span></label>
+        <input type="date" id="dob" required aria-required="true" aria-describedby="dobError" class="w-full p-3 rounded-md border border-[#a08a73] bg-white focus:ring-2 focus:ring-[#b08946] focus:outline-none transition" />
+        <p id="dobError" class="text-red-600 mt-1 h-5 hidden" role="alert"></p>
+      </div>
+      <div class="flex-1 max-w-sm">
+        <label for="targetDate" class="block mb-3 font-bold text-[#5c4740] text-left">Calculate Age On<span aria-hidden="true" class="text-red-600">*</span></label>
+        <input type="date" id="targetDate" required aria-required="true" aria-describedby="targetDateError" class="w-full p-3 rounded-md border border-[#a08a73] bg-white focus:ring-2 focus:ring-[#b08946] focus:outline-none transition" />
+        <p id="targetDateError" class="text-red-600 mt-1 h-5 hidden" role="alert"></p>
+      </div>
+    </section>
+
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-10">
+      <button id="calculateBtn" class="bg-[#6f583a] text-white font-playfair px-10 py-3 rounded-lg shadow-lg hover:bg-[#8a6f3a] transition transform hover:scale-105 border-2 border-[#453722] text-xl focus:outline-none focus:ring-4 focus:ring-[#b08946]" aria-live="polite">
+        Calculate Age
+      </button>
+      <button id="resetBtn" class="bg-[#9a7d50] text-white px-6 py-3 rounded-md shadow-md hover:bg-[#af9257] transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#b08946]">
+        Reset
+      </button>
+      <button id="copyBtn" class="hidden bg-[#816749] text-white px-6 py-2 rounded-md shadow-md hover:bg-[#9a8150] transition transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#b08946]">
+        Copy Results
+      </button>
+    </div>
+
+    <section id="result-section" class="hidden opacity-0 translate-y-6 transition-opacity transition-transform duration-700 ease-out" aria-live="polite" aria-atomic="true" aria-label="Age calculation results">
+      <div class="mb-8">
+        <h2 class="font-playfair text-2xl font-semibold text-[#5c4740] mb-6">Your Age Details:</h2>
+        <div class="grid grid-cols-3 md:grid-cols-6 gap-5 text-[#5c4740]">
+          <div class="age-box"><span id="years">--</span><p>Years</p></div>
+          <div class="age-box"><span id="months">--</span><p>Months</p></div>
+          <div class="age-box"><span id="days">--</span><p>Days</p></div>
+          <div class="age-box live-time"><span id="hours">--</span><p>Hours</p></div>
+          <div class="age-box live-time"><span id="minutes">--</span><p>Minutes</p></div>
+          <div class="age-box live-time"><span id="seconds">--</span><p>Seconds</p></div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 text-left">
+        <div class="info-card">
+          <h3 class="font-playfair text-xl font-bold mb-4">Next Birthday Countdown</h3>
+          <p class="text-[#5c4740] mb-5 text-lg">
+            Your next birthday is on <strong id="next-bday-date">---</strong> (
+            <strong id="next-bday-weekday">---</strong>) in:
+          </p>
+          <div class="grid grid-cols-4 gap-3 text-center">
+            <div class="countdown-box"><span id="countdown-days">--</span><p>Days</p></div>
+            <div class="countdown-box"><span id="countdown-hours">--</span><p>Hours</p></div>
+            <div class="countdown-box"><span id="countdown-minutes">--</span><p>Minutes</p></div>
+            <div class="countdown-box"><span id="countdown-seconds">--</span><p>Seconds</p></div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3 class="font-playfair text-xl font-bold mb-4">Lifetime Summary</h3>
+          <p class="text-[#5c4740] mb-3">You were born on a <strong id="birth-day">---</strong>.</p>
+          <p class="text-[#5c4740] mb-3">
+            Total days lived: <strong id="total-days">---</strong>
+          </p>
+          <div id="milestones" class="text-[#5c4740]"></div>
+        </div>
+      </div>
+    </section>
+
+    <p id="error-message" class="text-red-600 font-semibold h-6 mt-6" role="alert" aria-live="assertive"></p>
+  </main>
+
+  <script src="calculator.js"></script>
+</body>
+</html>
